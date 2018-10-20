@@ -2,7 +2,12 @@
   "name": "javascript-development-environment",
   "version": "1.0.0",
   "description": "JavaScript development environment Pluralsight course by Cory House",
-  "scripts": {},
+  "scripts": {
+    "prestart": "node buildScripts/startMessage.js",
+    "start": "node buildScripts/srcServer.js",
+    "share": "npm-run-all --parallel start localTunnel",
+    "localTunnel": "node buildScripts/shareMessage.js && lt --port 1998 --subdomain yash"
+  },
   "author": "Yash Handa",
   "license": "MIT",
   "dependencies": {
