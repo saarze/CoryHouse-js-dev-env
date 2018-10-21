@@ -1,5 +1,5 @@
-const chalk = require('chalk');
+import { white, green } from 'chalk';
 
-const port = 1998;
-console.log(chalk.white.bgRed('\t\t This is a Dev Server ONLY \n'));
-console.log(chalk.green(`Server is running at ${port} ...`));
+const port = 1998; //change it in webpack.config.js also
+console.log(white.bgRed('\t\t This is a Dev Server ONLY \n'));
+console.log(green(`Server is running at ${port} ...`));
