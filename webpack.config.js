@@ -1,8 +1,8 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
@@ -36,11 +36,12 @@ module.exports = {
     }
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
       {
@@ -79,7 +80,7 @@ module.exports = {
       {
         test: /\.html$/,
         use: [{
-          loader: "html-loader",
+          loader: 'html-loader',
           options: {
             minimize: true
           }
@@ -87,7 +88,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
@@ -97,13 +98,13 @@ module.exports = {
     disableHostCheck: true,
     port: 1998 //change it in buildScripts/startMessage also
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebPackPlugin({
       // inject: false,
       hash: true,
-      template: "./src/index.html",
-      filename: "./index.html"
+      template: './src/index.html',
+      filename: './index.html'
     }),
     new MiniCssExtractPlugin({
       filename: '[name].bundle.[contenthash:4].css',

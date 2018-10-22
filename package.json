@@ -7,12 +7,15 @@
   "description": "JavaScript development environment Pluralsight course by Cory House",
   "scripts": {
     "prestart": "babel buildScripts/startMessage.js -o buildScripts/start.js && node buildScripts/start.js",
-    "start": "webpack-dev-server --mode development --open --color",
+    "dev-server": "webpack-dev-server --mode development --open --color",
+    "start": "npm-run-all --parallel dev-server lint-w",
     "share": "npm-run-all --parallel localTunnel start",
     "localTunnel": "babel buildScripts/shareMessage.js -o buildScripts/share.js && node buildScripts/share.js && lt --port 1998 --subdomain yash",
     "clean": "rm -r dist/*",
     "build": "webpack --mode development",
-    "prod-build": "webpack --mode production"
+    "prod-build": "webpack --mode production",
+    "lint": "esw webpack.config.* src --color",
+    "lint-w": "npm run lint -- --watch"
   },
   "author": "Yash Handa",
   "license": "MIT",
