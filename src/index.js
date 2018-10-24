@@ -1,5 +1,6 @@
-import 'bootstrap';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.min.js';
 import './style.css';
 import { join } from 'lodash';
 import './style2.css';
